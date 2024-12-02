@@ -13,16 +13,21 @@
 
     return is_decreasing or is_increasing
 
+def is_fixable(report):
+    for i in range(0, len(report)):
+        cursor = report[:i] + report[i + 1:]
+        if is_safe_report(cursor):
+            return True
+
 
 with open('puzzle.txt') as file:
     puzzles = file.read().split('\n')
-
     result = 0
 
     for puzzle in puzzles:
         reports = [int(x) for x in puzzle.split()]
 
-        if is_safe_report(reports):
+        if is_fixable(reports):
             result += 1
 
     print(f'Result: {result}')
