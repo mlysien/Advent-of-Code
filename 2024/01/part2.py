@@ -1,7 +1,6 @@
 ﻿
 if __name__ == '__main__':
 
-    #load puzzle
     with open('puzzle.txt') as file:
         puzzles = file.read().split('\n')
 
